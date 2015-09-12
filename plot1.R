@@ -1,0 +1,6 @@
+setwd("C:\\Users\\figuca02\\datasciencecoursera\\exdata-data-household_power_consumption")
+data<-read.table("household_power_consumption.txt", na.strings="?", nrow=2880,skip=66637,dec=".", sep=";", col.names=c("Date","Time","Global Active Power","Global Reactive Power","Voltage","Global Intensity", "Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+data$Date<-as.Date(data[,1],"%d/%m/%Y")
+png(filename="plot1.png", width= 480, height=480, units="px")
+hist(data$Global.Active.Power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+dev.off()
